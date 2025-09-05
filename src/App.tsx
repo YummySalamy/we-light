@@ -195,33 +195,33 @@ const App: React.FC = () => {
       {/* Main Container */}
       <div className="relative min-h-screen">
         <HeroSection 
-          ref={(el) => (sectionRefs.current["hero"] = el)} 
+          ref={(el) => { sectionRefs.current["hero"] = el }} 
           isDarkTheme={isDarkTheme}
           scrollToSection={scrollToSection}
         />
         
         <TeamSection 
-          ref={(el) => (sectionRefs.current["team"] = el)} 
+          ref={(el) => { sectionRefs.current["team"] = el }} 
           isDarkTheme={isDarkTheme}
         />
         
         <ProjectSection 
-          ref={(el) => (sectionRefs.current["project"] = el)} 
+          ref={(el) => { sectionRefs.current["project"] = el }} 
           isDarkTheme={isDarkTheme}
         />
         
         <WeeklyTrackingSection 
-          ref={(el) => (sectionRefs.current["tracking"] = el)} 
+          ref={(el) => { sectionRefs.current["tracking"] = el }} 
           isDarkTheme={isDarkTheme}
         />
         
         <BudgetSection 
-          ref={(el) => (sectionRefs.current["budget"] = el)} 
+          ref={(el) => { sectionRefs.current["budget"] = el }} 
           isDarkTheme={isDarkTheme}
         />
         
         <ContactSection 
-          ref={(el) => (sectionRefs.current["contact"] = el)} 
+          ref={(el) => { sectionRefs.current["contact"] = el }} 
           isDarkTheme={isDarkTheme}
         />
         
