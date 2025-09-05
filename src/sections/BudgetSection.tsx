@@ -15,74 +15,46 @@ interface BudgetItem {
 
 const budgetItems: BudgetItem[] = [
   {
-    elemento: "Transistor NPN 2N2222",
+    elemento: "Paquete de jumpers",
     cantidad: 2,
-    precio: 1500,
-    proveedor: "ElectroComponentes",
-    categoria: "Semiconductores"
+    precio: 8000,
+    proveedor: "Local",
+    categoria: "Cables"
   },
   {
-    elemento: "Resistencia 2kΩ 1/4W",
-    cantidad: 2,
-    precio: 200,
-    proveedor: "ElectroComponentes",
-    categoria: "Resistencias"
-  },
-  {
-    elemento: "Resistencia 5kΩ 1/4W",
-    cantidad: 1,
-    precio: 200,
-    proveedor: "ElectroComponentes",
-    categoria: "Resistencias"
-  },
-  {
-    elemento: "Sensor de Luz LDR GL5528",
-    cantidad: 1,
-    precio: 2500,
-    proveedor: "SensorTech",
-    categoria: "Sensores"
-  },
-  {
-    elemento: "Microcontrolador Arduino Nano",
-    cantidad: 1,
-    precio: 25000,
-    proveedor: "Arduino Store",
-    categoria: "Microcontroladores"
-  },
-  {
-    elemento: "Relé 12V 10A",
-    cantidad: 2,
-    precio: 3500,
-    proveedor: "ElectroComponentes",
-    categoria: "Relés"
-  },
-  {
-    elemento: "Capacitor Electrolítico 100µF",
-    cantidad: 2,
-    precio: 800,
-    proveedor: "ElectroComponentes",
+    elemento: "Capacitor 220 pF",
+    cantidad: 3,
+    precio: 300,
+    proveedor: "Local",
     categoria: "Capacitores"
   },
   {
-    elemento: "LED Indicador 5mm",
-    cantidad: 4,
-    precio: 300,
-    proveedor: "ElectroComponentes",
-    categoria: "LEDs"
+    elemento: "Resistencia 10k",
+    cantidad: 6,
+    precio: 100,
+    proveedor: "Local",
+    categoria: "Resistencias"
   },
   {
-    elemento: "Protoboard 830 puntos",
-    cantidad: 1,
-    precio: 8000,
-    proveedor: "ElectroComponentes",
+    elemento: "Protoboard",
+    cantidad: 2,
+    precio: 14000,
+    proveedor: "Local",
     categoria: "Herramientas"
   },
   {
-    elemento: "Cables Jumper M-M",
-    cantidad: 20,
-    precio: 150,
-    proveedor: "ElectroComponentes",
-    categoria: "Cables"
+    elemento: "Transistor 3906",
+    cantidad: 8,
+    precio: 500,
+    proveedor: "Local",
+    categoria: "Semiconductores"
+  },
+  {
+    elemento: "Transistor 3904",
+    cantidad: 12,
+    precio: 500,
+    proveedor: "Local",
+    categoria: "Semiconductores"
   }
 ]
 
