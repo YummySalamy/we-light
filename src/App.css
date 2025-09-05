@@ -1,0 +1,87 @@
+/* Base styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Components */
+.glassmorphism {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s;
+}
+
+.dark .glassmorphism {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.glassmorphism-strong {
+  background-color: rgb(181 181 181 / 15%);
+  backdrop-filter: blur(32px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s;
+}
+
+.dark .glassmorphism-strong {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.card-hover {
+  transition: all 0.3s ease-out;
+  transform: translateZ(0);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dark .card-hover:hover {
+  box-shadow: 0 20px 25px rgba(13, 148, 136, 0.2);
+}
+
+.button-hover {
+  transition: all 0.3s ease-out;
+  transform: translateZ(0);
+}
+
+.button-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+}
+
+.button-hover:active {
+  transform: translateY(0);
+}
+
+.nav-item {
+  transition: all 0.3s ease-out;
+}
+
+.nav-item:hover {
+  transform: translateY(-2px);
+}
+
+.mobile-menu {
+  transition: all 0.3s ease-out;
+}
+
+/* Utilities */
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.text-shadow-lg {
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
