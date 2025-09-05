@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import { FaMoneyBillWave, FaShoppingCart, FaCalculator, FaChartPie } from 'react-icons/fa'
 
 interface BudgetSectionProps {

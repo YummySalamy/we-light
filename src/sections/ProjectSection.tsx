@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import { FaLightbulb, FaCog, FaEye, FaMoon, FaSun, FaRocket, FaChartLine } from 'react-icons/fa'
 
 interface ProjectSectionProps {
@@ -159,7 +159,7 @@ export const ProjectSection = forwardRef<HTMLElement, ProjectSectionProps>(
               Especificaciones Técnicas
             </h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {specifications.map((spec, index) => (
+              {specifications.map((spec) => (
                 <div
                   key={spec.label}
                   className="flex justify-between items-center p-3 glassmorphism rounded-lg"

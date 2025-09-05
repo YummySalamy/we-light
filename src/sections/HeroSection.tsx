@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import { FaChevronDown, FaRocket, FaLightbulb, FaCog } from 'react-icons/fa'
 
 interface HeroSectionProps {

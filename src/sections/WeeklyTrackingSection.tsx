@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from 'react'
+import { forwardRef, useState } from 'react'
 import { FaCalendarWeek, FaCheckCircle, FaClock, FaExclamationTriangle, FaChevronRight } from 'react-icons/fa'
 
 interface WeeklyTrackingSectionProps {

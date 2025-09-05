@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { FaUser, FaPalette, FaBullhorn, FaCogs, FaArchive } from 'react-icons/fa'
+import { FaPalette, FaBullhorn, FaCogs, FaArchive } from 'react-icons/fa'
 
 interface TeamSectionProps {
   isDarkTheme: boolean
