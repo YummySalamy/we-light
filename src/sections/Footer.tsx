@@ -35,7 +35,7 @@ export const Footer: React.FC<FooterProps> = ({ isDarkTheme, scrollToSection }) 
                 <FaLightbulb className="text-white w-5 h-5" />
               </div>
               <h3 className={`text-lg md:text-xl font-semibold ${isDarkTheme ? "text-white" : "text-gray-800"}`}>
-                WeLigh
+                WeLight
               </h3>
             </div>
             <p className={`mb-4 text-sm md:text-base ${isDarkTheme ? "text-gray-300" : "text-gray-600"}`}>
@@ -99,9 +99,9 @@ export const Footer: React.FC<FooterProps> = ({ isDarkTheme, scrollToSection }) 
         >
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="flex items-center justify-center gap-2">
-              Hecho con <FaHeart className="text-red-500" /> por el equipo WeLigh
+              Hecho con <FaHeart className="text-red-500" /> por el equipo WeLight
             </p>
-            <p>© {currentYear} WeLigh. Todos los derechos reservados.</p>
+            <p>© {currentYear} WeLight. Todos los derechos reservados.</p>
           </div>
           <div className="mt-4 flex items-center justify-center gap-4 text-xs">
             <span className="flex items-center gap-1">

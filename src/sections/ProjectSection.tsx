@@ -1,5 +1,6 @@
 import { forwardRef } from 'react'
 import { FaLightbulb, FaCog, FaEye, FaMoon, FaSun, FaRocket, FaChartLine } from 'react-icons/fa'
+import RoverPrototypeImage from '../assets/rover/rover_prototype.jpeg'
 
 interface ProjectSectionProps {
   isDarkTheme: boolean
@@ -95,18 +96,23 @@ export const ProjectSection = forwardRef<HTMLElement, ProjectSectionProps>(
               </div>
               <div className="relative">
                 <div className="glassmorphism rounded-2xl p-6 text-center">
-                  <div className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-4 relative">
+                  {/* <div className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-4 relative">
                     <div className="absolute inset-0 bg-gradient-to-br from-teal-500 to-amber-400 rounded-full animate-pulse-glow" />
                     <div className="relative w-full h-full rounded-full border-4 border-white/50 flex items-center justify-center text-white text-4xl md:text-5xl">
                       <FaRocket />
                     </div>
-                  </div>
+                  </div> */}
+                  <img
+                    src={RoverPrototypeImage}
+                    alt="Rover Prototype"
+                    className="w-full h-auto rounded-xl mb-4 shadow-lg"
+                  />
                   <h4
                     className={`text-lg font-semibold ${
                       isDarkTheme ? "text-white" : "text-gray-800"
                     }`}
                   >
-                    Rover WeLigh
+                    Rover WeLight
                   </h4>
                   <p
                     className={`text-sm ${

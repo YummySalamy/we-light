@@ -74,7 +74,33 @@ const weeklyData: WeekData[] = [
     ],
     notes: "En desarrollo. Se han adquirido la mayoría de componentes y se está trabajando en el ensamblaje del circuito.",
     date: "Semana del 29 Enero - 2 Febrero 2024"
-  }
+  },
+  {
+    week: 10,
+    title: "Propuesta de prototipo final",
+    status: 'completed',
+    description: "Actividades y objetivos por definir según el progreso del proyecto.",
+    objectives: ["Presentar propuesta de prototipo final",
+      "Revisar feedback del equipo y ajustar diseño",
+      "Planificar pruebas de integración",
+      "Documentar lecciones aprendidas"
+    ],
+    deliverables: ["Por definir"],
+    date: "Sept 2025"
+  },
+  {
+    week: 11,
+    title: "Primeras pruebas de integración y ajustes",
+    status: 'in-progress',
+    description: "Actividades y objetivos por definir según el progreso del proyecto.",
+    objectives: ["Realizar pruebas de integración del sistema",
+      "Identificar y corregir fallos",
+      "Optimizar rendimiento del sistema",
+      "Actualizar documentación técnica"
+    ],
+    deliverables: ["Por definir"],
+    date: "Oct 2025"
+  },
 ]
 
 // Generar semanas pendientes (4-16)

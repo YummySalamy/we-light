@@ -1,5 +1,8 @@
 import React, { forwardRef } from 'react'
 import { FaPalette, FaBullhorn, FaCogs, FaArchive } from 'react-icons/fa'
+import DesignLeaderPic from '../assets/members/design_leader.jpeg'
+import COMOfficerPic from '../assets/members/com_officer.jpeg'
+import RFManagerPic from '../assets/members/r_and_f.jpeg'
 
 interface TeamSectionProps {
   isDarkTheme: boolean
@@ -10,6 +13,7 @@ interface TeamMember {
   role: string
   description: string
   icon: React.ReactNode
+  image?: string
   color: string
 }
 
@@ -19,6 +23,7 @@ const teamMembers: TeamMember[] = [
     role: "Design Leader",
     description: "Líder de diseño encargado de la conceptualización visual y experiencia de usuario del sistema de control de iluminación.",
     icon: <FaPalette />,
+    image: DesignLeaderPic,
     color: "from-purple-500 to-pink-500"
   },
   {
@@ -26,6 +31,7 @@ const teamMembers: TeamMember[] = [
     role: "COM Officer",
     description: "Oficial de comunicaciones responsable de la coordinación del equipo y la documentación del proyecto.",
     icon: <FaBullhorn />,
+    image: COMOfficerPic,
     color: "from-blue-500 to-teal-500"
   },
   {
@@ -33,6 +39,7 @@ const teamMembers: TeamMember[] = [
     role: "R&F Manager",
     description: "Gerente de investigación y desarrollo, encargado de la implementación técnica y pruebas del sistema.",
     icon: <FaCogs />,
+    image: RFManagerPic,
     color: "from-green-500 to-emerald-500"
   },
   {
@@ -76,7 +83,16 @@ export const TeamSection = forwardRef<HTMLElement, TeamSectionProps>(
                 <div className="relative w-20 h-20 md:w-24 md:h-24 mx-auto mb-4">
                   <div className={`absolute inset-0 bg-gradient-to-br ${member.color} rounded-full`} />
                   <div className="relative w-full h-full rounded-full border-4 border-white/50 shadow-lg flex items-center justify-center text-white text-2xl md:text-3xl">
-                    {member.icon}
+                    {/* {member.icon} */}
+                    {member.image ? (
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover rounded-full"
+                      />
+                    ) : (
+                      member.icon
+                    )}
                   </div>
                 </div>
 

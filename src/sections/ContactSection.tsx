@@ -155,7 +155,7 @@ export const ContactSection = forwardRef<HTMLElement, ContactSectionProps>(
                     isDarkTheme ? "text-white" : "text-gray-800"
                   }`}
                 >
-                  Sobre WeLigh
+                  Sobre WeLight
                 </h4>
                 <p
                   className={`text-sm leading-relaxed ${
