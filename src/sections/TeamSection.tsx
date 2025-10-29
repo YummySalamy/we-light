@@ -3,6 +3,7 @@ import { FaPalette, FaBullhorn, FaCogs, FaArchive } from 'react-icons/fa'
 import DesignLeaderPic from '../assets/members/design_leader.jpeg'
 import COMOfficerPic from '../assets/members/com_officer.jpeg'
 import RFManagerPic from '../assets/members/r_and_f.jpeg'
+import Archivist from '../assets/members/archivist.jpeg'
 
 interface TeamSectionProps {
   isDarkTheme: boolean
@@ -47,6 +48,7 @@ const teamMembers: TeamMember[] = [
     role: "Archivist",
     description: "Archivista del proyecto, responsable de la organización y mantenimiento de toda la documentación técnica.",
     icon: <FaArchive />,
+    image: Archivist,
     color: "from-orange-500 to-red-500"
   }
 ]
