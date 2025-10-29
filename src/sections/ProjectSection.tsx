@@ -1,5 +1,5 @@
 import { forwardRef } from 'react'
-import { FaLightbulb, FaCog, FaEye, FaMoon, FaSun, FaRocket, FaChartLine } from 'react-icons/fa'
+import { FaLightbulb, FaCog, FaEye, FaMoon, FaSun, FaChartLine } from 'react-icons/fa'
 import RoverPrototypeImage from '../assets/rover/rover_prototype.jpeg'
 
 interface ProjectSectionProps {
