@@ -15,53 +15,95 @@ interface BudgetItem {
 
 const budgetItems: BudgetItem[] = [
   {
-    elemento: "Paquete de jumpers",
-    cantidad: 2,
-    precio: 8000,
+    elemento: "Baquelita",
+    cantidad: 1,
+    precio: 5000,
     proveedor: "Local",
+    categoria: "Materiales"
+  },
+  {
+    elemento: "Borneras de dos",
+    cantidad: 2,
+    precio: 1200,
+    proveedor: "Local",
+    categoria: "Conectores"
+  },
+  {
+    elemento: "Regleta de pines macho",
+    cantidad: 1,
+    precio: 3000,
+    proveedor: "Local",
+    categoria: "Conectores"
+  },
+  {
+    elemento: "Regleta de pines hembra",
+    cantidad: 1,
+    precio: 3000,
+    proveedor: "Local",
+    categoria: "Conectores"
+  },
+  {
+    elemento: "LM7805",
+    cantidad: 1,
+    precio: 2000,
+    proveedor: "Local",
+    categoria: "Semiconductores"
+  },
+  {
+    elemento: "LM358",
+    cantidad: 3,
+    precio: 1000,
+    proveedor: "Local",
+    categoria: "Semiconductores"
+  },
+  {
+    elemento: "Socket LM358",
+    cantidad: 1,
+    precio: 500,
+    proveedor: "Local",
+    categoria: "Conectores"
+  },
+  {
+    elemento: "ESP32",
+    cantidad: 1,
+    precio: 24000,
+    proveedor: "Local",
+    categoria: "Microcontroladores"
+  },
+  {
+    elemento: "Cables",
+    cantidad: 1,
+    precio: 0,
+    proveedor: "Propio",
     categoria: "Cables"
   },
   {
-    elemento: "Capacitor 220 pF",
-    cantidad: 3,
-    precio: 300,
-    proveedor: "Local",
-    categoria: "Capacitores"
+    elemento: "Relay 12v (dañado)",
+    cantidad: 1,
+    precio: 25000,
+    proveedor: "Extranjero",
+    categoria: "Componentes"
   },
   {
-    elemento: "Resistencia 10k",
-    cantidad: 6,
-    precio: 100,
+    elemento: "Relay estado solido",
+    cantidad: 1,
+    precio: 35000,
     proveedor: "Local",
-    categoria: "Resistencias"
+    categoria: "Componentes"
   },
   {
-    elemento: "Protoboard",
-    cantidad: 2,
-    precio: 14000,
+    elemento: "Cables calibre 20(10m)",
+    cantidad: 1,
+    precio: 20000,
     proveedor: "Local",
-    categoria: "Herramientas"
-  },
-  {
-    elemento: "Transistor 3906",
-    cantidad: 8,
-    precio: 500,
-    proveedor: "Local",
-    categoria: "Semiconductores"
-  },
-  {
-    elemento: "Transistor 3904",
-    cantidad: 12,
-    precio: 500,
-    proveedor: "Local",
-    categoria: "Semiconductores"
+    categoria: "Cables"
   }
 ]
 
 export const BudgetSection = forwardRef<HTMLElement, BudgetSectionProps>(
   ({ isDarkTheme }, ref) => {
     const totalCost = budgetItems.reduce((sum, item) => sum + (item.precio * item.cantidad), 0)
-    
+
     const categoryTotals = budgetItems.reduce((acc, item) => {
       const total = item.precio * item.cantidad
       acc[item.categoria] = (acc[item.categoria] || 0) + total
@@ -80,18 +122,16 @@ export const BudgetSection = forwardRef<HTMLElement, BudgetSectionProps>(
       <section ref={ref} className="py-16 md:py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <h2
-            className={`text-3xl md:text-4xl font-bold text-center mb-6 md:mb-8 ${
-              isDarkTheme ? "text-white" : "text-gray-800"
-            }`}
+            className={`text-3xl md:text-4xl font-bold text-center mb-6 md:mb-8 ${isDarkTheme ? "text-white" : "text-gray-800"
+              }`}
           >
             Presupuesto y Materiales
           </h2>
           <p
-            className={`text-center mb-8 md:mb-12 text-base md:text-lg max-w-2xl mx-auto ${
-              isDarkTheme ? "text-gray-300" : "text-gray-600"
-            }`}
+            className={`text-center mb-8 md:mb-12 text-base md:text-lg max-w-2xl mx-auto ${isDarkTheme ? "text-gray-300" : "text-gray-600"
+              }`}
           >
-            Detalle completo de componentes, costos y proveedores para el desarrollo 
+            Detalle completo de componentes, costos y proveedores para el desarrollo
             del sistema de control de iluminación
           </p>
 
@@ -102,9 +142,8 @@ export const BudgetSection = forwardRef<HTMLElement, BudgetSectionProps>(
                 <FaMoneyBillWave />
               </div>
               <h3
-                className={`text-2xl md:text-3xl font-bold mb-2 ${
-                  isDarkTheme ? "text-green-400" : "text-green-600"
-                }`}
+                className={`text-2xl md:text-3xl font-bold mb-2 ${isDarkTheme ? "text-green-400" : "text-green-600"
+                  }`}
               >
                 {formatCurrency(totalCost)}
               </h3>
@@ -118,9 +157,8 @@ export const BudgetSection = forwardRef<HTMLElement, BudgetSectionProps>(
                 <FaShoppingCart />
               </div>
               <h3
-                className={`text-2xl md:text-3xl font-bold mb-2 ${
-                  isDarkTheme ? "text-teal-400" : "text-teal-600"
-                }`}
+                className={`text-2xl md:text-3xl font-bold mb-2 ${isDarkTheme ? "text-teal-400" : "text-teal-600"
+                  }`}
               >
                 {budgetItems.length}
               </h3>
@@ -134,9 +172,8 @@ export const BudgetSection = forwardRef<HTMLElement, BudgetSectionProps>(
                 <FaCalculator />
               </div>
               <h3
-                className={`text-2xl md:text-3xl font-bold mb-2 ${
-                  isDarkTheme ? "text-purple-400" : "text-purple-600"
-                }`}
+                className={`text-2xl md:text-3xl font-bold mb-2 ${isDarkTheme ? "text-purple-400" : "text-purple-600"
+                  }`}
               >
                 {budgetItems.reduce((sum, item) => sum + item.cantidad, 0)}
               </h3>
@@ -173,9 +210,8 @@ export const BudgetSection = forwardRef<HTMLElement, BudgetSectionProps>(
                   {budgetItems.map((item, index) => (
                     <tr
                       key={index}
-                      className={`border-t ${
-                        isDarkTheme ? "border-gray-700" : "border-gray-200"
-                      } hover:${isDarkTheme ? "bg-gray-800/30" : "bg-gray-50/30"} transition-colors`}
+                      className={`border-t ${isDarkTheme ? "border-gray-700" : "border-gray-200"
+                        } hover:${isDarkTheme ? "bg-gray-800/30" : "bg-gray-50/30"} transition-colors`}
                     >
                       <td className="p-4">
                         <div>
@@ -220,9 +256,8 @@ export const BudgetSection = forwardRef<HTMLElement, BudgetSectionProps>(
           {/* Category Breakdown */}
           <div className="glassmorphism-strong rounded-2xl p-6 md:p-8">
             <h3
-              className={`text-xl md:text-2xl font-semibold mb-6 flex items-center gap-2 ${
-                isDarkTheme ? "text-white" : "text-gray-800"
-              }`}
+              className={`text-xl md:text-2xl font-semibold mb-6 flex items-center gap-2 ${isDarkTheme ? "text-white" : "text-gray-800"
+                }`}
             >
               <FaChartPie className="text-teal-500" />
               Desglose por Categoría
