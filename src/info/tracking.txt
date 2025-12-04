@@ -1,0 +1,173 @@
+# Notas: Luces inteligentes
+
+# Primeras etapas de diseño (OP-AMP)
+
+## Simulaciones iniciales y espejo de corriente
+
+Se inició con primeras simulaciones y cálculos a mano para conocer los valores útiles de resistencias, ya con referencias de transistores escogidas (2N3904).
+
+![CIRCUITO ESPEJO DE CORRIENTE.jpg](attachment:31298056-1a06-4e8d-86de-b519b3900262:CIRCUITO_ESPEJO_DE_CORRIENTE.jpg)
+
+(Esquemático espejo de corriente)
+
+Se procedió la primera clase de la semana 2 a empezar con el primer montaje de prueba en protoboard, probando el espejo de corriente. Se verificó que los dos transistores en el espejo de corriente inicialmente estuvieran activos. 
+
+![Medición corriente colector transistor 1 espejo de corriente.jpg](attachment:16e1a335-3f39-4c58-90b0-56e3b0c7d5bb:4c1c6e81-eeae-4918-8994-bfd6a661cf96.png)
+
+(Corriente T1)
+
+![Medicion voltaje colector transistor 1.jpg](attachment:0f31ce67-5510-4b51-87c9-ce07d119874e:403b6c8d-f3ef-438b-9b9b-8d21d8e7ed6e.png)
+
+(Voltaje T1)
+
+Y se hizo lo mismo para el transistor 2, dando resultados satisfactorios de igual manera.
+
+## Par diferencial
+
+Para la clase siguiente, se procedió entonces con el diseño y prueba inicial con el par diferencial ahora añadido al circuito.
+
+![CIRCUITO PAR DIFERENCIAL.jpg](attachment:694ca85c-4681-481e-855c-76f28e425ada:CIRCUITO_PAR_DIFERENCIAL.jpg)
+
+(Esquemático par diferencial)
+
+Se hicieron, como es costumbre, las simulaciones en LTSpice primero, para luego hacer las comprobaciones en la placa de prototipado, inicialmente con Vin a 6V corriente directa, donde las primeras pruebas dieron resultados satisfactorios en las pruebas de puntos de operación, donde todos los transistores mostraban estado de “activo”, justo como se había simulado inicialmente, por lo cual no hubo necesidad de rediseños o cálculos de nuevo.
+
+![Medición señal par diferencial.jpg](attachment:128a2f33-c3de-493f-acc0-e9320f90fd36:Medicin_seal_par_diferencial.jpg)
+
+(Medición señales de entrada y salida del par diferencial)
+
+Luego, ya con el visto bueno, se procede con la prueba con generador de señales, introduciendo una señal de corriente alterna. Al inicio se presentaron problemas con el generador de señales, donde no se tenia conocimiento de que el offset colocado se duplica en la señal entregada, lo cual luego fue arreglado y testeado. Por esta razón se cambió a otro modelo de generador de señales el cual mostró un resultado más positivo. 
+
+A pesar de ello, se presentaron problemas con la estabilidad de las señales, tanto de entrada como de salida, las cuales no fueron posibles de arreglar de inmediato, dado que no se presentaba una señal en fase una con respecto a la otra y no invertidas, como deberia verse en la siguiente simulación:
+
+![image.png](attachment:f4f15b3a-100f-4b8b-900a-b2eb8cf3ea48:image.png)
+
+En cambio, se presentó con una señal de esta manera, donde la entrada del par no oscilaba correctamente, ni tenía una amplitud correcta, al igual que la señal de salida tampoco contaba con una forma de onda senoidal correcta:
+
+![PAR_DIF__MALO.jpg](attachment:e02c6e21-dd3e-4204-9b16-e8d6f1c406cb:a9781ac4-2c4d-43e0-903a-2c52f699b239.png)
+
+(Señales de entrada y salida del par diferencial erróneas iniciales)
+
+Finalmente, se hicieron pruebas utilizando diferentes valores tanto de resistencias, frecuencia y de voltaje, esto con tal de entender mejor el comportamiento de las señales a diferentes parametros, con tal de hallar una forma de mejorar la señal distorsionada, lo cual dio un resultado finalmente exitoso como se puede apreciar en la siguiente imagen:
+
+![SEÑAL PAR DIF.jpg](attachment:0e4fdfeb-5cf8-4c9c-9436-c4b7f1968879:SEAL_PAR_DIF.jpg)
+
+(Medición física salida vs entrada en osciloscopio)
+
+Como se puede apreciar, una perfecta inversión y desface de la señal de salido con respecto a la de entrada.
+
+## Etapa de degeneración
+
+Con esta etapa funcionando correctamente, se procedio con el modelado de la etapa de degeneración, cuyo esquematico es el siguiente:
+
+![image.png](attachment:031da7eb-8bb1-4cf2-9ebd-59add62f35b3:image.png)
+
+![image.png](attachment:03f673d1-e207-4eff-8f94-c4e53581ac9f:image.png)
+
+(Resultado Vout de color rojo, mientras salida del par diferencial es la señal verde)
+
+## Etapa de carga activa
+
+Luego de la degeneración, se hizo el modelado ya con el cascodo y common source añadidos, y además ya se incluye la carga activa, como se puede ver en la siguiente imagen (sin retroalimentación).
+
+![image.png](attachment:24f62db2-3c60-484b-93f8-9f9a0f8cb681:image.png)
+
+## Etapa final: retroalimentación
+
+Finalmente, se agrega el feedback al circuito:
+
+![image.png](attachment:143601b9-743e-4c15-847f-bd91a87c469b:image.png)
+
+Con una simulación salida contra entrada resultando de esta manera:
+
+![image.png](attachment:64b9c3a6-d58b-48b0-8e8e-37b2ccea1e72:image.png)
+
+(Señal azul es la salida, mientras la verde es la entrada)
+
+Luego de varias pruebas con todo el circuito completo montado en la placa de pruebas, la teoría indicaba un correcto diseño, pero al implementarlo en físico, el resultado de las señales no era satisfactorio debido a que la señal era interferida por una causa no detectada, hasta que finalmemte luego de varias pruebas modificando parámetros y valores, se logro una estabilidad en la señal, dando un resultado finalmente estable y correcto.
+
+![FINAL.jpg](attachment:a9af43b5-3f32-442d-98d6-1bd9a66792a8:FINAL.jpg)
+
+(Montaje de prueba circuito final funcionando)
+
+Y a continuación la señal salida contra entrada:
+
+![SEÑAL SALIDA.jpg](attachment:cf8e0583-3cc5-4e47-b6b7-2c8383c551ba:SEAL_SALIDA.jpg)
+
+(Señal amarilla es la salida, mientras la azul es la entrada)
+
+# Post-diseño de OP-AMP
+
+Luego del diseño del amplificador operacional bajo las directrices y seguimiento del profesor de la asignatura, se prosiguió entonces con la búsqueda de solución a la problematica planteda, la cual es implementar un sistema automatizado de las luces, tanto frontales y traseras del carrito EPICS. La visión preliminar fue, por medio de los 3 sensores ya disponibles en el carro, recibir la información que estos proporcionan para su lectura por medio de un microcontrolador, el cual posteriormente envía o in HIGH o un LOW que debe pasar por un componente que cambie el estado de las luces entre encendido y apagado.
+
+Esta idea se capitalizó en el siguiente diagrama:
+
+![XX.Diagrama.jpeg](attachment:9b2947bb-2585-4edd-9dbb-b837f9230529:XX.Diagrama.jpeg)
+
+(Diagrama de flujo lógica del código)
+
+A continuación, una imagen con el espacio designado para la solución.
+
+![2. Espacio designado.jpeg](attachment:6d4f7b23-84cc-4006-a7d6-d261fcd35171:2._Espacio_designado.jpeg)
+
+## Transición a PCB
+
+![1. PCB inicial.jpeg](attachment:d396be37-1f6e-425d-87e1-28b7d73df2c6:2052fa23-3c4f-4590-bc28-49629293140f.png)
+
+Luego de las pruebas satisfactorias en la placa de pruebas para una implementación del diseño mas profesional. 
+
+## Toma de medidas y dimensiones
+
+![3. PCB inicial dentro de la caja para mediciones inciales.jpeg](attachment:d409f918-701b-446c-8bf6-9104ac73c0b4:3._PCB_inicial_dentro_de_la_caja_para_mediciones_inciales.jpeg)
+
+En la anterior imagen, podemos apreciar el diseño, junto con una opción preliminar de microcontrolador el cual fue cambiado por un ESP32 por optimización de espacio.
+
+Luego de varias pruebas con esto, no hubo una respuesta correcta por parte de la impresión, debido a error a la impresión se tuvo que cambiar a una baquelita para un mejor control y cambio de componentes en caso de necesitarlo, tanto para cambios o mejoras, además de también verse mucho mas pulido y profesional que una placa de pruebas
+
+![4. Cambio a baquelita .jpeg](attachment:ca316995-f8d0-4b8a-8484-e1ccd4bc9284:4._Cambio_a_baquelita_.jpeg)
+
+En la anterior imagen contamos con una toma cercana de el cambio y montaje del OP-AMP construido en la baquelita.
+
+Luego de contar con esto, se tuvo que buscar la manera de que, debido a que la fuente del carro EPICS para el sistema de luces es de 12V, y que este voltaje es el proporcionado para el proyecto, el cual no puede ser usado para alimentar el ESP32 debido a que su entrada de alimentación es de 5V, tuvo que implementarse un regulador de voltaje al cual le entran los 12V de la fuente del carrito y sacara, tanto para el ESP32 y los sensores, los 5V. 
+
+Posteriormente, se buscó un OP-AMP comercial el cual fuera adecuado para función de comparación. Se escogió el LM358. 
+
+![7. Pruebas con comparador.jpeg](attachment:e2d08033-a981-4208-8616-adb7780a63bf:7._Pruebas_con_comparador.jpeg)
+
+(Pruebas con el amplificador operacional)
+
+Se comparaba el voltaje de salida del microcontrolador de entre 3.3V o 0V, con una referencia, la cual luego entregaba como salida idealmente 12V o 0V para las luces. Para la función de switch se eligió un relé, en este caso de estado sólido.
+
+![8. Prubas con relé .jpeg](attachment:2072fd22-1863-4fba-bee5-a853f236d35c:8._Prubas_con_rel_.jpeg)
+
+(Pruebas con el relé para conocimiento de su operación)
+
+![9. Circuito completo .jpeg](attachment:1985885b-605b-4bf6-a593-5a2f155ff0a3:9._Circuito_completo_.jpeg)
+
+Por su lado, la imagen anterior se puede observar el circuito integrando el OP-AMP junto con regulador, potenciometro y amplificador comercial comparador.
+
+Por siguiente, el diagrama de como está constituido el sistema:
+
+![X.Diagrama.jpeg](attachment:db01ffd8-e58b-4288-b8fa-fb8eb9756311:X.Diagrama.jpeg)
+
+Vista del cableado conectando los sensores al circuito de control:
+
+![10. Cables puestos .jpeg](attachment:f56359cb-172f-4651-8fd5-35b35749e290:10._Cables_puestos_.jpeg)
+
+(Cableado)
+
+Finalmente, con las pruebas finales hechas, se monta todo el proyecto junto para ser probado y monitoreado en el carrito.
+
+![11. Dentro.jpeg](attachment:276a23f3-e9fc-4dda-8026-84d87fd5ed6a:11._Dentro.jpeg)
+
+(Sistema ya montado en el espacio designado para ello)
+
+![12. Baquelita + Relé.jpeg](attachment:8e855766-d8e2-4f25-8ed4-226feaa24ccf:6cfc5587-075a-476e-910b-24a01097f1ab.png)
+
+(Montaje circuito + relé)
+
+![13. Vista general.jpeg](attachment:ef50e87d-09f9-4adc-8287-8d9eb58ccdd9:13._Vista_general.jpeg)
+
+(Vista general)
+
+Con esto, se dio como concluido el diseño y montaje del proyecto.

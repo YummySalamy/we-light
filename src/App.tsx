@@ -13,7 +13,7 @@ import {
 import { HeroSection } from "./sections/HeroSection"
 import { TeamSection } from "./sections/TeamSection"
 import { ProjectSection } from "./sections/ProjectSection"
-import { WeeklyTrackingSection } from "./sections/WeeklyTrackingSection"
+import { ProjectPhasesSection } from "./sections/ProjectPhasesSection"
 import { BudgetSection } from "./sections/BudgetSection"
 import { ContactSection } from "./sections/ContactSection"
 import { Footer } from "./sections/Footer"
@@ -100,11 +100,10 @@ const App: React.FC = () => {
       {/* Background */}
       <div className="fixed inset-0 -z-10 transition-all duration-500">
         <div
-          className={`absolute inset-0 ${
-            isDarkTheme
+          className={`absolute inset-0 ${isDarkTheme
               ? "bg-gradient-to-br from-gray-900 via-teal-900 to-gray-800"
               : "bg-gradient-to-br from-teal-50 via-amber-50 to-white"
-          }`}
+            }`}
         />
         <div className="absolute inset-0 opacity-30">
           <div className="absolute top-20 left-10 w-72 h-72 md:w-96 md:h-96 bg-teal-500 rounded-full filter blur-3xl opacity-40 animate-float" />
@@ -126,15 +125,14 @@ const App: React.FC = () => {
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className={`nav-item flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium transition-all ${
-                activeSection === item.id
+              className={`nav-item flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium transition-all ${activeSection === item.id
                   ? isDarkTheme
                     ? "bg-teal-500 text-white"
                     : "bg-teal-600 text-white"
                   : isDarkTheme
                     ? "text-gray-300 hover:text-white hover:bg-white/10"
                     : "text-gray-600 hover:text-gray-800 hover:bg-black/10"
-              }`}
+                }`}
             >
               <item.icon className="w-4 h-4" />
               {item.label}
@@ -152,7 +150,7 @@ const App: React.FC = () => {
         >
           <FaBars className={`w-5 h-5 ${isDarkTheme ? "text-white" : "text-gray-800"}`} />
         </button>
-        
+
         {isMobileMenuOpen && (
           <div className="mobile-menu absolute top-16 left-0 glassmorphism-strong rounded-2xl p-4 min-w-[200px] animate-slide-down">
             <div className="flex flex-col gap-2">
@@ -160,15 +158,14 @@ const App: React.FC = () => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`flex items-center gap-2 text-left px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                    activeSection === item.id
+                  className={`flex items-center gap-2 text-left px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeSection === item.id
                       ? isDarkTheme
                         ? "bg-teal-500 text-white"
                         : "bg-teal-600 text-white"
                       : isDarkTheme
                         ? "text-gray-300 hover:text-white hover:bg-white/10"
                         : "text-gray-600 hover:text-gray-800 hover:bg-black/10"
-                  }`}
+                    }`}
                 >
                   <item.icon className="w-4 h-4" />
                   {item.label}
@@ -194,37 +191,37 @@ const App: React.FC = () => {
 
       {/* Main Container */}
       <div className="relative min-h-screen">
-        <HeroSection 
-          ref={(el) => { sectionRefs.current["hero"] = el }} 
+        <HeroSection
+          ref={(el) => { sectionRefs.current["hero"] = el }}
           isDarkTheme={isDarkTheme}
           scrollToSection={scrollToSection}
         />
-        
-        <TeamSection 
-          ref={(el) => { sectionRefs.current["team"] = el }} 
+
+        <TeamSection
+          ref={(el) => { sectionRefs.current["team"] = el }}
           isDarkTheme={isDarkTheme}
         />
-        
-        <ProjectSection 
-          ref={(el) => { sectionRefs.current["project"] = el }} 
+
+        <ProjectSection
+          ref={(el) => { sectionRefs.current["project"] = el }}
           isDarkTheme={isDarkTheme}
         />
-        
-        <WeeklyTrackingSection 
-          ref={(el) => { sectionRefs.current["tracking"] = el }} 
+
+        <ProjectPhasesSection
+          ref={(el) => { sectionRefs.current["tracking"] = el }}
           isDarkTheme={isDarkTheme}
         />
-        
-        <BudgetSection 
-          ref={(el) => { sectionRefs.current["budget"] = el }} 
+
+        <BudgetSection
+          ref={(el) => { sectionRefs.current["budget"] = el }}
           isDarkTheme={isDarkTheme}
         />
-        
-        <ContactSection 
-          ref={(el) => { sectionRefs.current["contact"] = el }} 
+
+        <ContactSection
+          ref={(el) => { sectionRefs.current["contact"] = el }}
           isDarkTheme={isDarkTheme}
         />
-        
+
         <Footer isDarkTheme={isDarkTheme} scrollToSection={scrollToSection} />
       </div>
     </div>
