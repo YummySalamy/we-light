@@ -9,11 +9,13 @@ import {
   FaMoneyBillWave,
   FaRocket,
   FaFileAlt,
+  FaVideo,
 } from "react-icons/fa"
 import { HeroSection } from "./sections/HeroSection"
 import { TeamSection } from "./sections/TeamSection"
 import { ProjectSection } from "./sections/ProjectSection"
 import { ProjectPhasesSection } from "./sections/ProjectPhasesSection"
+import { DemoSection } from "./sections/DemoSection"
 import { BudgetSection } from "./sections/BudgetSection"
 import { ContactSection } from "./sections/ContactSection"
 import { Footer } from "./sections/Footer"
@@ -91,6 +93,7 @@ const App: React.FC = () => {
     { id: "team", label: "Equipo", icon: FaUsers },
     { id: "project", label: "Proyecto", icon: FaLightbulb },
     { id: "tracking", label: "Seguimiento", icon: FaCalendarWeek },
+    { id: "demo", label: "Demo", icon: FaVideo },
     { id: "budget", label: "Presupuesto", icon: FaMoneyBillWave },
     { id: "contact", label: "Contacto", icon: FaFileAlt },
   ]
@@ -101,8 +104,8 @@ const App: React.FC = () => {
       <div className="fixed inset-0 -z-10 transition-all duration-500">
         <div
           className={`absolute inset-0 ${isDarkTheme
-              ? "bg-gradient-to-br from-gray-900 via-teal-900 to-gray-800"
-              : "bg-gradient-to-br from-teal-50 via-amber-50 to-white"
+            ? "bg-gradient-to-br from-gray-900 via-teal-900 to-gray-800"
+            : "bg-gradient-to-br from-teal-50 via-amber-50 to-white"
             }`}
         />
         <div className="absolute inset-0 opacity-30">
@@ -126,12 +129,12 @@ const App: React.FC = () => {
               key={item.id}
               onClick={() => scrollToSection(item.id)}
               className={`nav-item flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium transition-all ${activeSection === item.id
-                  ? isDarkTheme
-                    ? "bg-teal-500 text-white"
-                    : "bg-teal-600 text-white"
-                  : isDarkTheme
-                    ? "text-gray-300 hover:text-white hover:bg-white/10"
-                    : "text-gray-600 hover:text-gray-800 hover:bg-black/10"
+                ? isDarkTheme
+                  ? "bg-teal-500 text-white"
+                  : "bg-teal-600 text-white"
+                : isDarkTheme
+                  ? "text-gray-300 hover:text-white hover:bg-white/10"
+                  : "text-gray-600 hover:text-gray-800 hover:bg-black/10"
                 }`}
             >
               <item.icon className="w-4 h-4" />
@@ -159,12 +162,12 @@ const App: React.FC = () => {
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
                   className={`flex items-center gap-2 text-left px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeSection === item.id
-                      ? isDarkTheme
-                        ? "bg-teal-500 text-white"
-                        : "bg-teal-600 text-white"
-                      : isDarkTheme
-                        ? "text-gray-300 hover:text-white hover:bg-white/10"
-                        : "text-gray-600 hover:text-gray-800 hover:bg-black/10"
+                    ? isDarkTheme
+                      ? "bg-teal-500 text-white"
+                      : "bg-teal-600 text-white"
+                    : isDarkTheme
+                      ? "text-gray-300 hover:text-white hover:bg-white/10"
+                      : "text-gray-600 hover:text-gray-800 hover:bg-black/10"
                     }`}
                 >
                   <item.icon className="w-4 h-4" />
@@ -209,6 +212,11 @@ const App: React.FC = () => {
 
         <ProjectPhasesSection
           ref={(el) => { sectionRefs.current["tracking"] = el }}
+          isDarkTheme={isDarkTheme}
+        />
+
+        <DemoSection
+          ref={(el) => { sectionRefs.current["demo"] = el }}
           isDarkTheme={isDarkTheme}
         />
 
